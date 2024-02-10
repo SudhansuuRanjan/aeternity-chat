@@ -503,6 +503,8 @@ textarea {
   padding: 0.5rem;
   scrollbar-width: none;
   overflow-x: hidden;
+  gap: 0.6rem;
+  margin-bottom: 0.1rem;
 }
 
 .ai__chat {
