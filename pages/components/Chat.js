@@ -8,6 +8,7 @@ const Chat = ({ getReply }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const [scroll, setScroll] = useState("");
 
   const container = useRef(null);
@@ -48,10 +49,12 @@ const Chat = ({ getReply }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (message === "") return;
+    // console.log({loading},{isTyping},{isSpeaking},{message});
     await addUserMessage();
     setLoading(true);
     const mssg = message;
     setMessage("");
+    setScroll("avs");
     const output = await getReply(mssg);
 
     const msg2 = {
@@ -63,7 +66,7 @@ const Chat = ({ getReply }) => {
     msg.push(msg2);
     setData(msg);
     setLoading(false);
-    handleSpeak(output);
+    // await handleSpeak(output);
   };
 
   return (
@@ -76,22 +79,22 @@ const Chat = ({ getReply }) => {
           Hii there! You can ask me questions related to Æternity Blockchain.
         </p>
         {data.map((item, index) => (
-          <p
+          <div
             key={index}
             className={item.sender == "ai" ? "ai__chat" : "user__chat"}
             data-aos={item.sender == "ai" ? "fade-right" : "fade-left"}
           >
             {item.sender == "ai" ? (
-              <TypingText setScroll={setScroll} inputText={item.text} />
+              <TypingText setTyping={setIsTyping} setScroll={setScroll} inputText={item.text} />
             ) : (
-                item.text
+              item.text
             )}
-          </p>
+          </div>
         ))}
         {loading && (
-          <p className="ai__chat">
+          <div className="ai__chat">
             <BouncingDotsLoader />
-          </p>
+          </div>
         )}
       </div>
 
@@ -102,12 +105,13 @@ const Chat = ({ getReply }) => {
             autoFocus
             placeholder="Type a question..."
             className="input"
-            type="chat_input"
+            type="text"
+            id="chat_input"
             name="chat_input"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button onClick={handleSubmit} className="send_chat">
+          <button disabled={isSpeaking || loading || isTyping} onClick={handleSubmit} className="send_chat">
             <IoMdSend size={25} />
           </button>
         </form>
