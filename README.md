@@ -6,7 +6,7 @@ The `Aeternity blockchain` is an innovative blockchain that holds great potentia
 
 ## Welcome 👋 to ÆChat
 
-![aeternity-blockchain](https://github.com/Harshkumar62367/aeternity-chat/assets/72465090/fd1bbc2f-c7db-476b-8682-77d8405b5331)
+<img width="950" alt="aeternity" src="https://github.com/Harshkumar62367/aeternity-chat/assets/72465090/d4f4cfe7-0eb5-4495-bb97-f82d77a9c267">
 
 ## Problem
 Navigating through numerous web links and pages to find answers about Aeternity can be tedious and often yields inconsistent results.
