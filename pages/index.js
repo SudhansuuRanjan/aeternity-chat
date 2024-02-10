@@ -45,7 +45,7 @@ const Home = () => {
           rel="noreferrer"
         >
           <div className="badge">
-            <Image src={aelogo} alt="Algorand Logo" />
+            <Image src={aelogo} alt="Aeternity Logo" />
             <p>Æternity Docs</p>
           </div>
         </a>
