@@ -40,7 +40,7 @@ const Home = () => {
 
       <div className="badge-container grow">
         <a
-          href="https://docs.Æternity.com/"
+          href="https://docs.aeternity.com/"
           target="_blank"
           rel="noreferrer"
         >
