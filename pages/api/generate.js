@@ -12,7 +12,7 @@ const generateAction = async (req, res) => {
     res.status(200).json({ output: result.response.candidates[0].content.parts[0].text });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: error.message, output: null });
+    res.status(500).json({ error: "Something went wrong!", output: null });
   }
 };
 
