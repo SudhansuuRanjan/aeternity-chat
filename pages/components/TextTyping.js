@@ -21,7 +21,7 @@ const TypingText = ({ inputText, setScroll, setTyping }) => {
         }
         setScroll(fullText.slice(0, textIndex + 1)); // Fix 3: Increment textIndex after using it
         textIndex++; // Fix 4: Increment textIndex within the interval function
-      }, 60);
+      }, 45);
     } else {
       setTyping(false);
     }
